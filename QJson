@@ -1,0 +1,32 @@
+QJsonObject
+QJsonObject 类封装了一个 JSON 对象。
+一个 JSON 对象是一个“key/value 对”列表，key 是独一无二的字符串，value由一个 QJsonValue 表示。
+一个 QJsonObject 可以和一个 QVariantMap 相互转换。可以使用 size() 来查询“key/value 对”的数量，通过 insert() 插入“key/value对”， remove() 删除指定的 key。
+QJsonValue 类封装了一个值。
+JSON 中的值有 6 种基本数据类型：
+bool（QJsonValue::Bool）
+double（QJsonValue::Double）
+string（QJsonValue::String）
+array（QJsonValue::Array）
+object（QJsonValue::Object）
+null（QJsonValue::Null）
+一个值可以由任何上述数据类型表示。此外，QJsonValue 有一个特殊的标记来表示未定义的值，可以使用isUndefined() 查询。
+值的类型可以通过 type() 或 isBool()、isString()等访问函数查询。同样地，值可以通过 toBool()、toString()等函数转化成相应的存储类型。
+QJsonParseError
+QJsonParseError 类用于在 JSON 解析中报告错误。
+枚举 QJsonParseError::ParseError：
+该枚举描述 JSON 文档在解析过程中所发生的错误类型。
+QJsonDocument
+
+QJsonDocument 类用于读和写 JSON 文档
+
+QJsonDocument 类用于读和写 JSON 文档。
+
+一个 JSON 文档可以使用 QJsonDocument::fromJson() 从基于文本的表示转化为 QJsonDocument，toJson() 则可以反向转化为文本。
+解析器非常快且高效，并将 JSON 转换为 Qt 使用的二进制表示。
+
+已解析文档的有效性，可以使用 !isNull() 进行查询。
+
+如果要查询一个 JSON 文档是否包含一个数组或一个对象，使用 isArray() 和 isObject()。
+包含在文档中的数组或对象可以使用 array() 或 object() 检索，然后读取或操作。
+
